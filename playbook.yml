@@ -1,0 +1,26 @@
+- hosts: edison
+  tasks:
+    - name: Add repositories to base_feeds.conf
+      lineinfile:
+        dest='/etc/opkg/base_feeds.conf'
+        line="{{item.line}}"
+        create=yes
+      with_items:
+        - {line: 'src/gz all http://repo.opkg.net/edison/repo/all'}
+        - {line: 'src/gz edison http://repo.opkg.net/edison/repo/edison'}
+        - {line: 'src/gz core2-32 http://repo.opkg.net/edison/repo/core2-32'}
+    - name: Add repositories to intel-iotdk.conf
+      lineinfile:
+        dest='/etc/opkg/intel-iotdk.conf'
+        line="{{item.line}}"
+        create=yes
+      with_items:
+        - {line: 'src intel-iotdk http://iotdk.intel.com/repos/1.1/intelgalactic'}
+        - {line: 'src intel-all http://iotdk.intel.com/repos/1.1/iotdk/all'}
+        - {line: 'src intel-i586 http://iotdk.intel.com/repos/1.1/iotdk/i586'}
+        - {line: 'src intel-x86 http://iotdk.intel.com/repos/1.1/iotdk/x86'}
+    - name: Install git
+      opkg:
+        update_cache=yes
+        name=git
+
