@@ -23,6 +23,15 @@ ansible-galaxy install bobbyrenwick.pip
 * Connect Intel Edison with RemoteNDIS.
 * If `ping 192.168.2.15` is success, you can go next step.
 
+### Configure WiFi
+
+* It's not automated yet
+
+```sh
+# on Intel Edison
+configure_edison --wifi
+```
+
 ### Run Ansible
 
 ```sh
