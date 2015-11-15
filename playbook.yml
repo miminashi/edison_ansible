@@ -2,6 +2,8 @@
   roles:
     - bobbyrenwick.pip
   tasks:
+    #- name: Setup wifi
+    #  shell: configure_edison --wifi
     - name: Add repositories to base_feeds.conf
       lineinfile:
         dest='/etc/opkg/base_feeds.conf'
@@ -21,7 +23,23 @@
         - {line: 'src intel-all http://iotdk.intel.com/repos/1.1/iotdk/all'}
         - {line: 'src intel-i586 http://iotdk.intel.com/repos/1.1/iotdk/i586'}
         - {line: 'src intel-x86 http://iotdk.intel.com/repos/1.1/iotdk/x86'}
-    - name: Install git
+    - name: Install packages with opkg
       opkg:
         update_cache=yes
-        name=git
+        name="{{item.name}}"
+      with_items:
+        - {name: 'vim'}
+        - {name: 'screen'}
+        - {name: 'git'}
+    - name: .screenrc
+      lineinfile:
+        dest='~/.screenrc'
+        line="{{item.line}}"
+        create=yes
+      with_items:
+        - {line: 'startup_message off'}
+        - {line: 'vbell off '}
+        - {line: 'caption always "  %n %t  $USER@%H"'}
+        - {line: 'termcapinfo xterm* ti@:te@'}
+        - {line: 'term xterm-color'}
+        - {line: 'shell bash'}
