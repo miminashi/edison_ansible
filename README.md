@@ -12,6 +12,12 @@ setup Intel Edison with Ansible
 pip install git+https://github.com/ansible/ansible.git@v2.0.0-0.5.beta3
 ```
 
+### Install rolls from Ansible Galaxy
+
+```sh
+ansible-galaxy install bobbyrenwick.pip
+```
+
 ### Connect Intel Edison
 
 * Connect Intel Edison with RemoteNDIS.
