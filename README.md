@@ -14,9 +14,8 @@ pip install git+https://github.com/ansible/ansible.git@v2.0.0-0.5.beta3
 
 ### Connect Intel Edison
 
-Before run following command, please connect Intel Edison with RemoteNDIS.
-
-If `ping 192.168.2.15` is success, you can go next step.
+* Connect Intel Edison with RemoteNDIS.
+* If `ping 192.168.2.15` is success, you can go next step.
 
 ### Run Ansible
 
