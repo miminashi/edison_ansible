@@ -9,7 +9,7 @@ setup Intel Edison with Ansible
 * Using Ansible1.x with Intel Edison cause [problem](http://stackoverflow.com/questions/33074882/importerror-no-module-named-syslog-ansible-edison).
 
 ```sh
-pip install git+https://github.com/ansible/ansible.git@v2.0.0-0.5.beta3
+pip install git+https://github.com/ansible/ansible.git@v2.0.0-0.6.rc1
 ```
 
 ### Install rolls from Ansible Galaxy
